@@ -4,16 +4,58 @@
     <title>Calculator App</title>
   </head>
   <body>
+    <div class="container-fluid">
+
+     
     <table class="calculator">
       <tr>
-        <td colspan="3">
-          <input class="display-box" type="text" id="result" disabled/>
+        <td colspan="12">
+          <div>
+            <div class="disply-box" type="text">{{input}}</div>
+          </div>
+          <div>
+            <div class="disply-box" type="text">{{result}}</div>
+          </div>
         </td>
-        <!-- clearScreen() function clear all the values -->
+      </tr>
+      <tr>
         <td>
           <input
             class="button"
             type="button"
+            (click)="pressNum('1')"
+            value="1"
+          />
+        </td>
+        <td>
+          <input
+            class="button"
+            type="button"
+            (click)="pressNum('2')"
+            value="2"
+          />
+        </td>
+        <td>
+          <input
+            class="button"
+            type="button"
+            (click)="pressNum('3')"
+            value="3"
+          />
+        </td>
+        <td>
+          <input
+            class="button"
+            type="button"
+            (click)="pressOperator('/')"
+            value="/"
+          />
+        </td>
+        <td>
+          <input
+            class="button"
+            type="button"
+            (click)="allClear()"
             value="C"
           />
         </td>
@@ -23,36 +65,7 @@
           <input
             class="button"
             type="button"
-            value="1"
-          />
-        </td>
-        <td>
-          <input
-            class="button"
-            type="button"
-            value="2"
-          />
-        </td>
-        <td>
-          <input
-            class="button"
-            type="button"
-            value="3"
-          />
-        </td>
-        <td>
-          <input
-            class="button"
-            type="button"
-            value="/"
-          />
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input
-            class="button"
-            type="button"
+            (click)="pressNum('4')"
             value="4"
           />
         </td>
@@ -60,6 +73,7 @@
           <input
             class="button"
             type="button"
+            (click)="pressNum('5')"
             value="5"
           />
         </td>
@@ -67,6 +81,7 @@
           <input
             class="button"
             type="button"
+            (click)="pressNum('6')"
             value="6"
           />
         </td>
@@ -74,7 +89,16 @@
           <input
             class="button"
             type="button"
+            (click)="pressOperator('-')"
             value="-"
+          />
+        </td>
+        <td>
+          <input
+            class="button"
+            type="button"
+            (click)="clear()"
+            value="Del"
           />
         </td>
       </tr>
@@ -83,6 +107,7 @@
           <input
             class="button"
             type="button"
+            (click)="pressNum('7')"
             value="7"
           />
         </td>
@@ -90,6 +115,7 @@
           <input
             class="button"
             type="button"
+            (click)="pressNum('8')"
             value="8"
           />
         </td>
@@ -97,6 +123,7 @@
           <input
             class="button"
             type="button"
+            (click)="pressNum('9')"
             value="9"
           />
         </td>
@@ -104,7 +131,16 @@
           <input
             class="button"
             type="button"
+            (click)="pressOperator('+')"
             value="+"
+          />
+        </td>
+        <td>
+          <input
+            class="button"
+            type="button"
+            (click)="pressOperator('%')"
+            value="%"
           />
         </td>
       </tr>
@@ -113,6 +149,7 @@
           <input
             class="button"
             type="button"
+            (click)="pressNum('.')"
             value="."
           />
         </td>
@@ -120,6 +157,7 @@
           <input
             class="button"
             type="button"
+            (click)="pressNum('0')"
             value="0"
           />
         </td>
@@ -127,17 +165,28 @@
           <input
             class="button"
             type="button"
-            value="="
+            (click)="pressNum('00')"
+            value="00"
           />
         </td>
         <td>
           <input
             class="button"
             type="button"
+            (click)="pressOperator('*')"
             value="*"
+          />
+        </td>
+        <td>
+          <input
+            class="button"
+            type="button"
+            (click)="getAnswer()"
+            value="="
           />
         </td>
       </tr>
     </table>
+      </div>
   </body>
 </html>
